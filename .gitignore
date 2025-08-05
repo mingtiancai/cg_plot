@@ -1,0 +1,3 @@
+cg_plot/.xmake/*
+cg_plot/build/*
+.xmake/linux/arm64/project.lock
