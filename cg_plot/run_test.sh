@@ -1,0 +1,1 @@
+xmake run cg_plot_test

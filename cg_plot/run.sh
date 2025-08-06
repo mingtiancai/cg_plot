@@ -1,1 +1,1 @@
-xmake run
+xmake run cg_plot
