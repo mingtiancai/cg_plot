@@ -31,3 +31,7 @@ git submodule update --init --recursive
 xmake
 ```
 
+运行指定程序
+```
+xmake run cg_plot
+```
