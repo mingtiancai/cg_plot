@@ -28,6 +28,32 @@ int main() {
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
+        if (ImGui::BeginMainMenuBar()) {
+            if (ImGui::BeginMenu("File")) {
+                if (ImGui::MenuItem("New")) {
+                    // 响应“新建”菜单项
+                    std::cout << "New is clicked!" << std::endl;
+                }
+                if (ImGui::MenuItem("Open")) {
+                    // 响应“打开”菜单项
+                    std::cout << "Open is clicked!" << std::endl;
+                }
+                if (ImGui::MenuItem("Exit")) {
+                    // 响应“退出”菜单项
+                    glfwSetWindowShouldClose(window, GLFW_TRUE);
+                }
+                ImGui::EndMenu();
+            }
+            if (ImGui::BeginMenu("Help")) {
+                if (ImGui::MenuItem("About")) {
+                    // 响应“关于”菜单项
+                    ImGui::OpenPopup("AboutPopup");
+                }
+                ImGui::EndMenu();
+            }
+            ImGui::EndMainMenuBar();
+        }
+
         // ImGui窗口
         ImGui::Begin("Hello, ImGui!");
         ImGui::Text("This is a demo window.");

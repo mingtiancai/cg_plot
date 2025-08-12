@@ -2,3 +2,5 @@ cg_plot/.xmake/*
 cg_plot/build/*
 .xmake/linux/arm64/project.lock
 .vscode/*
+.xmake/linux/arm64/cache/detect
+.xmake/linux/arm64/cache/repository
