@@ -8,31 +8,31 @@ class Vector3d
 {
 public:
     // Constructors
-    Vector3d() : x(0), y(0), z(0) {}
-    Vector3d(double x, double y, double z) : x(x), y(y), z(z) {}
+    Vector3d() : x_(0), y_(0), z_(0) {}
+    Vector3d(double x, double y, double z) : x_(x), y_(y), z_(z) {}
 
-    Vector3d(const Vector3d &other) : x(other.x), y(other.y), z(other.z) {} // Copy constructor
+    Vector3d(const Vector3d &other) : x_(other.x_), y_(other.y_), z_(other.z_) {} // Copy constructor
     Vector3d &operator=(const Vector3d &other)
     { // Copy assignment operator
         if (this != &other)
         {
-            x = other.x;
-            y = other.y;
-            z = other.z;
+            x_ = other.x_;
+            y_ = other.y_;
+            z_ = other.z_;
         }
         return *this;
     }
 
     Vector3d(const Vector3d &p0, const Vector3d &p1)
     { // Constructor from two points
-        x = p1.x - p0.x;
-        y = p1.y - p0.y;
-        z = p1.z - p0.z;
+        x_ = p1.x_ - p0.x_;
+        y_ = p1.y_ - p0.y_;
+        z_ = p1.z_ - p0.z_;
     }
 
     double Magnitude() const
     { // Calculate the magnitude of the vector
-        return sqrt(x * x + y * y + z * z);
+        return sqrt(x_ * x_ + y_ * y_ + z_ * z_);
     }
 
     Vector3d Normalize() const
@@ -40,20 +40,20 @@ public:
         double mag = Magnitude();
         if (mag < 1e-6)
             return Vector3d(0, 0, 0); // Avoid division by zero
-        return Vector3d(x / mag, y / mag, z / mag);
+        return Vector3d(x_ / mag, y_ / mag, z_ / mag);
     }
 
     ~Vector3d() {} // Destructor
 
     // Getters
-    double GetX() const { return x; }
-    double GetY() const { return y; }
-    double GetZ() const { return z; }
+    double GetX() const { return x_; }
+    double GetY() const { return y_; }
+    double GetZ() const { return z_; }
 
     // Setters
-    void SetX(double x) { this->x = x; }
-    void SetY(double y) { this->y = y; }
-    void SetZ(double z) { this->z = z; }
+    void SetX(double x) { this->x_ = x; }
+    void SetY(double y) { this->y_ = y; }
+    void SetZ(double z) { this->z_ = z; }
 
     friend Vector3d operator+(const Vector3d &a, const Vector3d &b)
     {
@@ -89,12 +89,12 @@ public:
 
     friend std::ostream& operator<<(std::ostream& os, const Vector3d& v)
     {
-        os << "Vector3d(x=" << v.x << ", y=" << v.y << ", z=" << v.z << ")";
+        os << "Vector3d(x=" << v.x_ << ", y=" << v.y_ << ", z=" << v.z_ << ")";
         return os;
     }
 
 private:
-    double x, y, z;
+    double x_, y_, z_;
 };
 
 #endif
